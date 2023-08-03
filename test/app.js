@@ -1,7 +1,7 @@
 const express = require('express');
 const register_route = require('./routes/register');
 const login_route = require('./routes/login');
-const delete_route = require('./routes/delete')
+const rd_route = require('./routes/deleteandremove')
 const mongoose = require('mongoose');
 const validatetoken = require('./tokenhandler');
 const app = express()
@@ -19,7 +19,7 @@ con.on('open',()=>{
 app.use(express.json())
 app.use('/register',register_route)
 app.use('/login',validatetoken,login_route)
-app.use('/delete',delete_route)
+app.use('/deleteandremove',rd_route)
 
 let PORT = 8080;
 
